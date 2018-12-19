@@ -1,0 +1,62 @@
+*, *:before, *:after
+{
+  box-sizing: border-box;
+}
+
+body
+{
+  margin: 0 auto;
+  padding: 15px;
+  max-width: 600px;
+  min-width: 320px;
+
+  font-size: calc(15px + 1.5vmin);
+}
+
+.games
+{
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: 0;
+
+  list-style: none;
+  text-align: center;
+}
+
+.games > *
+{
+  margin-bottom: 0.667em;
+  width: 50%;
+}
+
+.games img
+{
+  padding: 0.333em;
+}
+
+.logo
+{
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+}
+.logo img
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: block;
+
+  width: 100%;
+
+  border-radius: 25%;
+}
+
+.half
+{
+  width: 50%;
+}
