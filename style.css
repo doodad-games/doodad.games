@@ -13,6 +13,13 @@ body
   font-size: calc(15px + 1.5vmin);
 }
 
+img
+{
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
 video
 {
   width: 100%;
