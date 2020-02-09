@@ -6,11 +6,11 @@
 body
 {
   margin: 0 auto;
-  padding: 15px;
+  padding: 1em;
   max-width: 600px;
   min-width: 320px;
 
-  font-size: calc(15px + 1.5vmin);
+  font-size: 18px;
 }
 
 img
@@ -39,12 +39,26 @@ video
 .games > *
 {
   margin-bottom: 0.667em;
-  width: 50%;
+  width: 100%;
 }
 
-.games img
+.games .logo img
 {
   padding: 0.333em;
+}
+
+.experimental-games
+{
+  margin-top: -0.7em;
+
+  text-align: initial;
+}
+
+.experimental-games .logo-inline
+{
+  top: 0.7em;
+
+  width: 2em;
 }
 
 .logo
@@ -85,4 +99,23 @@ video
 .half
 {
   width: 50%;
+}
+
+@media (min-width: 425px) {
+  body
+  {
+    font-size: 22px;
+  }
+
+  .games > *
+  {
+    width: 50%;
+  }
+}
+
+@media (min-width: 600px) {
+  body
+  {
+    font-size: 26px;
+  }
 }
