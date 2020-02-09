@@ -6,11 +6,11 @@
 body
 {
   margin: 0 auto;
-  padding: 1em;
+  padding: 15px;
   max-width: 600px;
   min-width: 320px;
 
-  font-size: 18px;
+  font-size: calc(15px + 1.5vmin);
 }
 
 img
@@ -39,7 +39,7 @@ video
 .games > *
 {
   margin-bottom: 0.667em;
-  width: 100%;
+  width: 285px;
 }
 
 .games .logo img
@@ -94,28 +94,4 @@ video
 .logo-inline
 {
   border-radius: 25%;
-}
-
-.half
-{
-  width: 50%;
-}
-
-@media (min-width: 425px) {
-  body
-  {
-    font-size: 22px;
-  }
-
-  .games > *
-  {
-    width: 50%;
-  }
-}
-
-@media (min-width: 600px) {
-  body
-  {
-    font-size: 26px;
-  }
 }
