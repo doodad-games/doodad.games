@@ -7,9 +7,10 @@ body
 {
   margin: 0 auto;
   padding: 15px;
-  max-width: 600px;
+  max-width: 22em;
   min-width: 320px;
 
+  font-family: "Trebuchet MS";
   font-size: calc(15px + 1.5vmin);
 }
 
