@@ -26,6 +26,13 @@ video
   width: 100%;
 }
 
+input
+{
+  padding: 0.2em 0.5em;
+
+  font-size: inherit;
+}
+
 .games
 {
   display: flex;
