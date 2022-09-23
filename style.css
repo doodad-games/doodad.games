@@ -48,14 +48,19 @@ hr
   margin-bottom: 1em;
 }
 
-.games
+.games, .experimental-games
 {
-  display: flex;
   flex-wrap: wrap;
 
   padding: 0;
 
   list-style: none;
+}
+
+.games
+{
+  display: flex;
+
   text-align: center;
 }
 
@@ -71,17 +76,26 @@ hr
   padding: 0.333em;
 }
 
-.experimental-games
+.experimental-games > li
 {
-  margin-top: -0.7em;
+  display: flex;
+  margin-bottom: 0.667em;
+}
 
-  text-align: initial;
+.experimental-games > li > a:first-child
+{
+  align-self: flex-start;
+  flex-shrink: 0;
+  margin-right: 0.333em;
+}
+
+.experimental-games > li > a:first-child + a
+{
+  align-self: center;
 }
 
 .experimental-games .logo-inline
 {
-  top: 0.7em;
-
   width: 2em;
 }
 
@@ -200,7 +214,21 @@ hr
   background: #eee;
 }
 
-@media (min-width: 60em) {
+@media (min-width: 40em)
+{
+  .experimental-games
+  {
+    display: flex;
+  }
+
+  .experimental-games > li
+  {
+    width: 50%;
+  }
+}
+
+@media (min-width: 60em)
+{
   body.press-kit
   {
     padding-left: 2em;
