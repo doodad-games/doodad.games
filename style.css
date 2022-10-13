@@ -247,6 +247,11 @@ hr
   {
     background: #191922;
   }
+
+  .back-to-top
+  {
+    background: #33333d;
+  }
 }
 
 @media (min-width: 40em)
