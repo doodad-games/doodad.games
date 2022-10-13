@@ -60,10 +60,12 @@ input
 
 hr
 {
-  border: solid 1px #ddd;
+  border: solid 1px #999;
   margin: 0;
   margin-block-start: 2em;
   margin-block-end: 1em;
+
+  background: #999;
 }
 
 .games, .experimental-games
@@ -228,6 +230,12 @@ hr
   {
     color: #c3c3cc;
     background: #22222b;
+  }
+
+  hr
+  {
+    border-color: #bbb;
+    background: #bbb;
   }
 
   a:any-link
