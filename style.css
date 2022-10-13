@@ -22,6 +22,21 @@ body.press-kit
   font-size: calc(10px + 1.0vmin);
 }
 
+h2
+{
+  margin-block: 1.66em 0.83em;
+}
+
+h1 + h2.inline-icon-title
+{
+  margin-block-start: 0.83em;
+}
+
+h3
+{
+  margin-block: 2em 1em;
+}
+
 img
 {
   display: block;
@@ -45,7 +60,8 @@ hr
 {
   border: solid 1px #ddd;
   margin: 0;
-  margin-bottom: 1em;
+  margin-block-start: 2em;
+  margin-block-end: 1em;
 }
 
 .games, .experimental-games
@@ -76,29 +92,6 @@ hr
   padding: 0.333em;
 }
 
-.experimental-games > li
-{
-  display: flex;
-  margin-bottom: 0.667em;
-}
-
-.experimental-games > li > a:first-child
-{
-  align-self: flex-start;
-  flex-shrink: 0;
-  margin-right: 0.333em;
-}
-
-.experimental-games > li > a:first-child + a
-{
-  align-self: center;
-}
-
-.experimental-games .logo-inline
-{
-  width: 2em;
-}
-
 .logo
 {
   position: relative;
@@ -118,20 +111,33 @@ hr
   width: 100%;
 }
 
-.logo-inline
-{
-  position: relative;
-  top: 0.15em;
-
-  display: inline-block;
-
-  width: 1em;
-}
-
 .logo img,
-.logo-inline
+.inline-icon-title img
 {
   border-radius: 25%;
+}
+
+.experimental-games .inline-icon-title
+{
+  margin-block-end: 0.5em;
+}
+
+.inline-icon-title
+{
+  display: flex;
+  align-items: center;
+}
+
+.inline-icon-title > *:first-child
+{
+  flex-shrink: 0;
+  margin-inline-end: 0.66em;
+  width: 2em;
+}
+
+.inline-icon-title > *:last-child
+{
+  flex-grow: 1;
 }
 
 .press-kit img
