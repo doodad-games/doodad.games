@@ -13,6 +13,8 @@ body
 
   font-family: "Trebuchet MS";
   font-size: calc(12px + 1.2vmin);
+  color: #494444;
+  background: #e3e3ee;
 }
 
 body.press-kit
@@ -217,7 +219,34 @@ hr
 .press-kit .primary-sidebar nav a:hover,
 .press-kit .primary-sidebar nav a:focus
 {
-  background: #eee;
+  background: #d2d2dd;
+}
+
+@media (prefers-color-scheme: dark)
+{
+  body
+  {
+    color: #c3c3cc;
+    background: #22222b;
+  }
+
+  a:any-link
+  {
+    color: #88f;
+    text-decoration-color: #88f;
+  }
+
+  a:any-link:visited
+  {
+    color: #b8b;
+    text-decoration-color: #b8b;
+  }
+
+  .press-kit .primary-sidebar nav a:hover,
+  .press-kit .primary-sidebar nav a:focus
+  {
+    background: #191922;
+  }
 }
 
 @media (min-width: 40em)
