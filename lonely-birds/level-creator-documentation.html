@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Level Creator Documentation | Lonely Birds | Doodad Games</title>
+    
+    <link rel="stylesheet" type="text/css" href="../style.css"/>
+  </head>
+  <body class="document">
+		<div class="split">
+			<aside class="section primary-sidebar">
+				<div class="header-with-subtitle">
+					<h1 id="h-top">Lonely Birds</h1>
+					<div role="doc-subtitle">Level Creator Documentation</div>
+				</div>
+				
+				<nav>
+					<ul>
+						<li><a href="#outline">Outline</a></li>
+						<li><a href="#example-level-pack">Example Level Pack</a></li>
+						<li><a href="#workflow">Workflow</a></li>
+						<li><a href="#documents">Documents</a></li>
+						<li><a href="#metadata-syntax">Metadata Syntax</a></li>
+						<li>
+							<a href="#pack-info-document">The Pack Info Document</a>
+							<ul>
+								<li><a href="#pack-info-metadata">Metadata</a></li>
+								<li><a href="#pack-info-content">Content</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#level-documents">Level Documents</a>
+							<ul>
+								<li><a href="#level-metadata">Metadata</a></li>
+								<li><a href="#level-content">Content</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#integration-with-mod.io">Integration with mod.io</a>
+							<ul>
+								<li><a href="#upload-to-mod.io">Uploading</a></li>
+								<li><a href="#download-from-mod.io">Downloading</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+			
+			<main>
+				<h1 id="outline">Outline</h1>
+				
+				<p>Inside the Lonely Birds game, there is a level creator and a mechanism to share and download other created levels.<p>
+
+				<ul>
+					<li>
+						The level creator allows you to create, edit and upload Level Pack text files.
+						<ul>
+							<li>Newly created Level Packs are pre-filled with <a href="#example-level-pack">Example</a> content.</li>
+							<li>We have a suggested <a href="#workflow">Workflow</a> for working with the level creator.</li>
+						</ul>
+					</li>
+					<li>A Level Pack contains multiple Levels, and specifies the order in which the levels are played.</li>
+					<li>
+						The Level Pack text file must follow a specific syntax:
+						<ul>
+							<li>Each Level, and the overall Level Pack details, are represented by individual <a href="#documents">Documents</a>.</li>
+							<li>Each Document can have two sections: metadata and content.</li>
+							<li>
+								A general <a href="#metadata-syntax">Metadata Syntax</a> is used, although each type of Document supports different metadata:
+								<ul>
+									<li><a href="#pack-info-metadata">Pack Info Metadata</a></li>
+									<li><a href="#level-metadata">Level Metadata</a></li>
+								</ul>
+							</li>
+							<li>
+								Each different Document type has its own content syntax and requirements:
+								<ul>
+									<li><a href="#pack-info-content">Pack Info Content</a></li>
+									<li><a href="#level-content">Level Content</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						An in-game <a href="#integration-with-mod.io">Integration with mod.io</a> exists to share your Level Packs, and download others'.
+						<ul>
+							<li>Level Packs can be <a href="#upload-to-mod.io">Uploaded to mod.io</a> from within the level creator.</li>
+							<li>You, and other players, can get Level Packs <a href="#download-from-mod.io">Downloaded from mod.io</a> through the in-game browser.</li>
+						</ul>
+					</li>
+					<li>You can freely switch the active Level Pack from the Official Levels to your created levels, or any downloaded ones, to test and play them.</li>
+				</ul>
+				
+				<h1><a id="example-level-pack">Example Level Pack</a></h1>
+				
+				<pre>$type=packinfo
+$name=Example Level Pack
+
+SimpleLevel
+LevelWithEverything
+
+
+///
+
+$key=LevelWithEverything
+$season=autumn
+
+#..+.+D.
+Z...2C...
+.......+
+.1A.^T..A.
+1B.......
++...>T..2B
+.C......
+..Z+.+D#
+
+
+///
+
+$key=SimpleLevel
+$season=summer
+
+.....B.
+.A....A
+.......
+.....B.
+
+</pre>
+				
+				<h1><a id="workflow">Workflow</a></h1>
+				
+				<p>The suggested workflow involves using external, more featureful text editors, alongside the in-game editor for testing and referencing the legend.</p>
+				
+				<ol>
+					<li>Press the Level Creator button in the menu and select the Level Pack you want to edit.</li>
+					<li>Select all text in the editor and copy it to your system clipboard.</li>
+					<li>Paste it into an external editor, such as Windows Notepad, and make your changes there. Switch back to the game to reference the Legend that's visible in the Level Creator as needed.</li>
+					<li>When you're ready to test your changes, copy everything from your text editor back into the Level Creator. Press Save, and then Back.</li>
+					<li>Switch the active Level Pack to the Local one that you're changing, and test it!</li>
+					<li>Repeat these steps...</li>
+				</ol>
+				
+				<details>
+					<summary>Why is it recommended to use an external text editor?</summary>
+					
+					<p>Due to development time constraints, the Level Creator is very barebones. It uses the Unity game engine's default text editing functionality, which on its own is not very featureful.</p>
+					
+					<p>We are aware of some issues with that text editor (such as with scrolling). We do not intend to fix those at this stage, and instead recommend using an external editor which won't have these problems.</p>
+					
+					<p>With more development time available, we'd rather implement a proper visual level editor instead of spending time improving Unity's text box function.</p>
+				</details>
+				
+				<h1><a id="documents">Documents</a></h1>
+				
+				<p>The file format supports defining multiple Documents within a single text file. This section will describe the syntax for writing and separating Documents.</p>
+				
+				<p>Documents are separated by a line which contains the text <code>///</code>:</p>
+				
+				<pre>this is inside document 1
+
+and so is this (1)
+///
+
+this is inside document 2
+
+
+and so is this (2)</pre>
+
+				<p>Also, all empty lines are ignored when processing Documents. So, this is the content that will be processed for the first Document:</p>
+				
+				<pre>this is inside document 1
+and so is this (1)</pre>
+
+				<p>And for the second Document:</p>
+				
+				<pre>this is inside document 2
+and so is this (2)</pre>
+				
+				<p>What you write inside Documents are split into two parts: the metadata, which is always at the start of the document; and then the content afterwards.</p>
+				
+				<p>There is a general <a href="#metadata-syntax">Metadata Syntax</a> that all Document types follow. However, the specific metadata supported, and also the content syntax and requirements, differ per Document type:</p>
+				
+				<ul>
+					<li><a href="#pack-info-document">The Pack Info Document</a></li>
+					<li><a href="#level-documents">Level Documents</a></li>
+				</ul>
+				
+				<h1><a id="metadata-syntax">Metadata Syntax</a></h1>
+				
+				<p>Example:</p>
+				
+				<pre>$type=level
+
+$NoTe=5.2 (From B&amp;P feedback)
+.....
+$secret=moo (this isn't parsed)</pre>
+				
+				<p>Rules:</p>
+				
+				<ol>
+					<li>Metadata is written in lines with the format <code>$&lt;key&gt;=&lt;value&gt;</code></li>
+					<li>Metadata parsing begins from the first line in a Document.</li>
+					<li>
+						Metadata parsing ends at the first line that begins with something other than <code>$</code>.
+						<ol>
+							<li>However, empty lines are ignored in Document processing, so they will not end metadata parsing.</li>
+							<li>Any further lines will not be parsed as metadata, even if that line begins with <code>$</code>.</li>
+						</ol>
+					</li>
+					<li>The key is case-insensitive.</li>
+					<li>The value is case-sensitive.</li>
+				</ol>
+				
+				<p>Line by line parsing explanation, based on the example metadata above:</p>
+				
+				<ol>
+					<li><code>type</code> is parsed to equal <code>level</code>.</li>
+					<li>This blank line is ignored as per rule 3.1. Metadata parsing continues.</li>
+					<li><code>note</code> is parsed (ignoring the capitalisation in <code>NoTe</code> as per rule 4) to equal <code>5.2 (From B&amp;P feedback)</code> (including capitalisation as per rule 5).</li>
+					<li>This non-empty line (<code>.....</code>) does not start with <code>$</code>, triggering rule 3 and ending metadata parsing.</li>
+					<li>This line (starting with <code>$secret</code>) is not parsed as metadata since parsing ended before the previous line (rule 3.2).</li>
+				</ol>
+				
+				<p>Different Document types support different metadata keys:</p>
+				
+				<ul>
+					<li><a href="#pack-info-metadata">Pack Info Metadata</a></li>
+					<li><a href="#level-metadata">Level Metadata</a></li>
+				</ul>
+			
+				<p>You can use unsupported keys to write your own notes on levels. Consider prefixing the keys (e.g. <code>$_difficulty</code>) to prevent any issues arising with future updates of the game (where a new key becomes supported).</p>
+				
+				<h1><a id="pack-info-document">The Pack Info Document</a></h1>
+				
+				<p>Only one Pack Info Document is supported. It fulfills the following purposes:</p>
+				
+				<ol>
+					<li>Specify the name of the Level Pack, as displayed in the Level Pack selectors and in mod.io.</li>
+					<li>Specify the order in which Levels are played.</li>
+				</ol>
+				
+				<h2><a id="pack-info-metadata">Pack Info Metadata</a></h2>
+				
+				<ul>
+					<li><code>$type=packinfo</code></li>
+					<li><code>$name=&lt;name&gt;</code> will be used for purpose 1 above.</li>
+				</ul>
+				
+				<h2><a id="pack-info-content">Pack Info Content</a></h2>
+				
+				<p>The content is used for purpose 2 above. Example:</p>
+				
+				<pre>A1
+A2
+A3
+WindmillLevel
+Upside-down Staircase
+C1
+C2</pre>
+
+				<p>Rules:</p>
+				
+				<ol>
+					<li>
+						Lines need to exactly match the key of a Level (as specified in <a href="#level-metadata">Level Metadata</a>).
+						<ol>
+							<li>Otherwise, they are ignored.</li>
+						</ol>
+					</li>
+					<li>The order of parsed lines will represent the order that the Levels are presented to players.</li>
+					<li>It is safe to re-order or insert new Levels inside the ordering in future.</li>
+					<li>If a Level is defined but is not included in this ordering, then it will not be playable.</li>
+				</ol>
+				
+				<h1><a id="level-documents">Level Documents</a></h1>
+				
+				<p>Multiple Level Documents are supported. They fulfill the following purposes:</p>
+				
+				<ol>
+					<li>Specify the content of a Level.</li>
+					<li>Specify the season for the Level to be played in. This is only visual in effect, changing which scene is loaded.</li>
+					<li>
+						Provide a key to identify the level.
+						<ol>
+							<li>Players' progress is saved against these keys. You can strategically modify the key to mark a Level as incomplete, which could be useful if you significantly modified a Level.</li>
+							<li>The <a href="#pack-info-document">Pack Info Document</a> references the key for Level ordering.</li>
+						</ol>
+					</li>
+				</ol>
+				
+				<h2><a id="level-metadata">Level Metadata</a></h2>
+				
+				<ul>
+					<li><code>$type=level</code> is optional - this is the default Document type.</li>
+					<li><code>$key=&lt;key&gt;</code> will be used for purpose 3 above.</li>
+					<li>
+						<code>$season=&lt;season&gt;</code> will be used for purpose 2 above.
+						Supported values: <code>autumn</code>; <code>spring</code>; <code>summer</code> (default); <code>winter</code>.
+					</li>
+				</ul>
+				
+				<h2><a id="level-content">Level Content</a></h2>
+				
+				<p>The content is used for purpose 1 above. Example:</p>
+				
+				<pre>.....
+B.VT.A
+.....
+A..B.</pre>
+				
+				<p>Rules:</p>
+				
+				<ol>
+					<li>Each line represents one row of tiles in the Level, with the first line representing the top row.</li>
+					<li>
+						The characters in a line represent the types of tile to be placed in that row, from left to right.
+						Reference the legend in the in-game Level Creator to see which characters represent each different tile type.
+					</li>
+					<li>
+						Some tile types require prefixes (for example, <code>&gt;T</code> for right-facing tree springs),
+						and prefixes can be added to some tile types (for example, <code>1A</code> for entanglement grouping).
+						This shows that more than one character may be necessary to describe a single tile.
+					</li>
+					<li>The largest supported level size is 9 rows by 12 columns.</li>
+				</ol>
+				
+				<p>Line by line parsing explanation, based on the example above:</p>
+				
+				<ol>
+					<li>Row 1 (<code>.....</code>): 5 empty tiles.</li>
+					<li>Row 2 (<code>B.VT.A</code>): A B-group bird; an empty tile; a downward-facing tree spring; an empty tile; and an A-group bird.</li>
+					<li>Row 3 (<code>.....</code>): 5 empty tiles.</li>
+					<li>Row 4 (<code>A..B.</code>): An A-group bird; two empty tiles; a B-group bird, and an empty tile.</li>
+				</ol>
+
+				<h1><a id="integration-with-mod.io">Integration with mod.io</a></h1>
+				
+				<p><a href="https://mod.io" target="_blank">mod.io</a> is a third party service that has been integrated into the Lonely Birds game.</p>
+				
+				<p>It has its own <a href="https://mod.io/privacy">privacy policy</a>. Usage of this service is optional - simply avoid logging into it to avoid using it.</p>
+				
+				<p>The integration adds support for <a href="#upload-to-mod.io">Uploading Level Packs</a> to share them with other players, and for <a href="#download-from-mod.io">Downloading Level Packs</a> created by other players, without needing to leave the game.</p>
+				
+				<h2><a id="upload-to-mod.io">Upload to mod.io</a></h2>
+				
+				<p>An Upload button is visible when editing a Level Pack. This button is used both when uploading a Level Pack for the first time, and when updating a Level Pack after making changes.</p>
+				
+				<p>You will be prompted to log into mod.io when you press the Upload button (unless you are already logged in). There are various login options - follow the prompts that the integration presents as suits your needs.</p>
+				
+				<p>By default, players who are browsing mod.io will see the following information when viewing your Level Pack:</p>
+				
+				<ul>
+					<li>The name provided in the <a href="#pack-info-metadata">Pack Info Metadata</a> is applied on each upload.</li>
+					<li>A short generated description is applied on each upload.</li>
+					<li>A default screenshot is applied on the first upload.</li>
+				</ul>
+				
+				<p>A Manage on mod.io button will appear after the initial upload. You can use to further customise how your Level Pack will be displayed, or delete your Level Pack if desired.</p>
+			
+				<p>Note that some customisations (mentioned above) may be overridden when you update your Level Pack. You may need to re-apply or adjust them after each upload.</p>
+				
+				<h2><a id="download-from-mod.io">Download from mod.io</a></h2>
+				
+				<p>The in-game mod.io Browser can be accessed from the game's menu. It is used to browse, search and subscribe to Level Packs that were uploaded to mod.io.</p>
+				
+				<p>mod.io automatically downloads, and keeps up to date, Level Packs that you have subscribed to.</p>
+				
+				<p>You will be prompted to log into mod.io when you try subscribing to a Level Pack (unless you are already logged in). There are various login options - follow the prompts that the integration presents as suits your needs.</p>
+				
+				<p>You can switch the active Level Pack to and from the Official Levels and ones you've downloaded or created to play them. This is done by pressing the dropdown button on top of the Level selection area on the menu.</p>
+				
+				<p>Unsubscribing from a Level Pack (which is done within the mod.io Browser) deletes it from your system, but any saved progress is not lost in case you re-subscribe later.</p>
+
+				<footer>
+					<hr/>
+
+					<nav>
+						<ul>
+							<li><a href="../privacy">Privacy policy</a></li>
+							<li><a href="mailto:contact@doodad.games">📧 contact@doodad.games</a></li>
+						</ul>
+					</nav>
+				</footer>
+				
+				<a class="back-to-top" href="#h-top">Back to top</a>
+			</main>
+		</div>
+  </body>
+</html>
