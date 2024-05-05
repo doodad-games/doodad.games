@@ -156,9 +156,15 @@ hr
   margin-block-end: 0.5em;
 }
 
+.header-with-subtitle
+{
+  margin-block-end: 1em;
+}
+
 .header-with-subtitle > *
 {
   display: inline-block;
+  margin-block-end: 0;
   margin-inline-end: 0.5em;
 }
 
@@ -287,16 +293,10 @@ hr
     font-size: calc(8px + 0.8vmin);
   }
 
-  .header-with-subtitle
-  {
-    margin-block-end: 1em;
-  }
-
   .header-with-subtitle > *
   {
     display: block;
     margin-inline-end: 0;
-    margin-block-end: 0;
   }
 
   .split
@@ -346,7 +346,7 @@ hr
     object-fit: scale-down;
   }
 
-  .hide-mobile
+  .back-to-top
   {
     display: none;
   }
