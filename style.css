@@ -274,6 +274,49 @@ hr
   }
 }
 
+.header-nav
+{
+  display: flex;
+  align-items: center;
+  margin-block-start: 1em;
+  margin-block-end: 2em;
+}
+
+.header-nav a
+{
+  display: block;
+}
+
+.header-nav img
+{
+  display: block;
+  margin: 0;
+}
+
+.header-nav .header-nav__main-logo
+{
+  width: 10em;
+}
+
+.header-nav__social-links
+{
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  margin-inline-start: 2em;
+}
+
+.header-nav__social-links img
+{
+  width: 2em;
+  height: 2em;
+  max-width: initial;
+}
+
+.header-nav__social-links a + a
+{
+}
+
 @media (min-width: 40em)
 {
   .experimental-games
