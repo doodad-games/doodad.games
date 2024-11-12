@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1"/>
+
+    <title>Beer 'n' Pixels | Doodad Games</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    
+    <style>
+      .header-nav
+      {
+          flex-grow: 1;
+          justify-content: center;
+          
+          margin-bottom: 5em;
+      }
+      
+      .header-nav__aside
+      {
+          margin-inline-start: 2em;
+          margin-block-start: -1em;
+          
+          text-align: center;
+      }
+      
+      .header-nav__aside a
+      {
+          display: inline;
+      }
+      
+      .option-page
+      {
+          display: none;
+          text-align: center;
+      }
+      
+      .option-page:target
+      {
+          display: block;
+      }
+      
+      .options > *
+      {
+          padding: 0.2em 1em;
+      }
+      
+      .logo
+      {
+          margin: 0 auto;
+          width: 50%;
+          padding-bottom: 50%;
+      }
+    </style>
+  </head>
+  <body class="game-picker">
+    <nav class="header-nav">
+      <img src="img/doodad-games-wide.svg" alt="Doodad Games Logo" class="header-nav__main-logo"/>
+      <div class="header-nav__aside">
+        Game Picker<br/>
+        <a href="#root">Restart</a> / <a href="" onclick="history.back(); return false;">Back</a>
+      </div>
+    </nav>
+    <div class="option-page" id="root">
+      <p>Do you want to play a tower defence?</p>
+      <div class="options">
+        <a href="#td">Yes</a>
+        <a href="#no-td">No</a>
+      </div>
+    </div>
+    <div class="option-page" id="td">
+      <p>Looking for a short play session?</p>
+      <div class="options">
+        <a href="#td-short">Yes</a>
+        <a href="#td-not-short">No</a>
+      </div>
+    </div>
+    <div class="option-page" id="td-short">
+      <p>Want a difficult game?</p>
+      <div class="options">
+        <a href="#td-short-difficult">Yes</a>
+        <a href="#td-short-not-difficult">No</a>
+      </div>
+    </div>
+    <div class="option-page" id="td-short-difficult">
+      <div class="game-result">
+        <p><a href="https://bilalakil.itch.io/stone-td" target="_blank">Stone TD</a></p>
+        <p>You'll need an over-the-shoulder tutorial for this one, as the game doesn't have any 😅</p>
+      </div>
+    </div>
+    <div class="option-page" id="td-short-not-difficult">
+      <div class="game-result">
+        <div class="logo">
+          <a href="https://www.kongregate.com/games/doodadgames/unitower" target="_blank">
+            <img src="img/unitower.png" alt="uniTower logo"/>
+          </a>
+        </div>
+        <p><a href="https://www.kongregate.com/games/doodadgames/unitower" target="_blank">uniTower</a></p>
+        <p>You can also play this game on your phone (iOS App Store and Google Play)!</p>
+      </div>
+    </div>
+    <div class="option-page" id="td-not-short">
+      <p>Old school?</p>
+      <div class="options">
+        <a href="#td-not-short-old-school">Yes</a>
+        <a href="#td-not-short-not-old-school">No</a>
+      </div>
+    </div>
+    <div class="option-page" id="td-not-short-old-school">
+      <p>Do you know how to maze?</p>
+      <div class="options">
+        <a href="#td-not-short-old-school-mazing">Yes</a>
+        <a href="#td-not-short-old-school-no-mazing">No</a>
+      </div>
+    </div>
+    <div class="option-page" id="td-not-short-old-school-mazing">
+      <div class="game-result">
+        <div class="logo">
+          <a href="https://bilalakil.itch.io/frankenstorm" target="_blank">
+            <img src="img/frankenstorm-td-prologue.jpg" alt="FrankenStorm TD: Prologue logo"/>
+          </a>
+        </div>
+        <p><a href="https://bilalakil.itch.io/frankenstorm" target="_blank">FrankenStorm TD: Prologue</a></p>
+        <p><em>Read the "QUICK HOW TO" section in the page description!</em></p>
+        <p>This is the original game jam version of the game. A much newer version is available on Steam for PC.</p>
+      </div>
+    </div>
+    <div class="option-page" id="td-not-short-old-school-no-mazing">
+      <div class="game-result">
+        <div class="logo">
+          <a href="https://www.kongregate.com/games/doodadgames/villager" target="_blank">
+            <img src="img/villager.jpg" alt="Villager logo"/>
+          </a>
+        </div>
+        <p><a href="https://www.kongregate.com/games/doodadgames/villager" target="_blank">Villager</a></p>
+        <p>You'll need an over-the-shoulder tutorial for this one, as the game doesn't have any 😅</p>
+      </div>
+    </div>
+    <div class="option-page" id="td-not-short-not-old-school">
+      <div class="game-result">
+        <p><a href="https://doodadgames.itch.io/item-td-2" target="_blank">Item TD 2</a></p>
+      </div>
+    </div>
+    <div class="option-page" id="no-td">
+      <p>Do you like to play with physics?</p>
+      <div class="options">
+        <a href="#no-td-physics">Yes</a>
+        <a href="#no-td-no-physics">No</a>
+      </div>
+    </div>
+    <div class="option-page" id="no-td-physics">
+      <div class="game-result">
+        <div class="logo">
+          <a href="https://www.kongregate.com/games/doodadgames/viking-trickshot" target="_blank">
+            <img src="viking-trickshot/logo.png" alt="Viking Trickshot logo"/>
+          </a>
+        </div>
+        <p><a href="https://www.kongregate.com/games/doodadgames/viking-trickshot" target="_blank">Viking Trickshot</a></p>
+        <p>The browser version is old. Newer versions are available for free on iOS App Store, Google Play, and Steam for PC.</p>
+      </div>
+    </div>
+    <div class="option-page" id="no-td-no-physics">
+      <p>Do you want to test your hand speed?</p>
+      <div class="options">
+        <a href="#no-td-no-physics-hand-speed">Yes</a>
+        <a href="#no-td-no-physics-no-hand-speed">No</a>
+      </div>
+    </div>
+    <div class="option-page" id="no-td-no-physics-hand-speed">
+      <p>Typing or clicking?</p>
+      <div class="options">
+        <a href="#no-td-no-physics-hand-speed-typing">Typing</a>
+        <a href="#no-td-no-physics-hand-speed-clicking">Clicking</a>
+      </div>
+    </div>
+    <div class="option-page" id="no-td-no-physics-hand-speed-typing">
+      <div class="game-result">
+        <p><a href="https://doodadgames.itch.io/typing-gladiators" target="_blank">Typing Gladiators</a></p>
+        <p><em>Read the "How to play" section in the page description!</em></p>
+      </div>
+    </div>
+    <div class="option-page" id="no-td-no-physics-hand-speed-clicking">
+      <div class="game-result">
+        <div class="logo">
+          <a href="https://doodadgames.itch.io/rabbit-flick" target="_blank">
+            <img src="img/rabbit-flick.png" alt="Rabbit Flick logo"/>
+          </a>
+        </div>
+        <p><a href="https://doodadgames.itch.io/rabbit-flick" target="_blank">Rabbit Flick</a></p>
+        <p>You can also play this game on your phone (iOS App Store and Google Play)!</p>
+      </div>
+    </div>
+    <div class="option-page" id="no-td-no-physics-no-hand-speed">
+      <p>Do you like trash?</p>
+      <div class="options">
+        <a href="#no-td-no-physics-no-hand-speed-trash">Yes</a>
+        <a href="#no-td-no-physics-no-hand-speed-no-trash">No</a>
+      </div>
+    </div>
+    <div class="option-page" id="no-td-no-physics-no-hand-speed-trash">
+      <div class="game-result">
+        <div class="logo">
+          <a href="https://doodadgames.itch.io/space-trash" target="_blank">
+            <img src="img/space-trash.jpg" alt="Space Trash logo"/>
+          </a>
+        </div>
+        <p><a href="https://doodadgames.itch.io/space-trash" target="_blank">Space Trash</a></p>
+        <p><em>Read the "HOW TO" section in the page description!</em></p>
+        <p>You can also play this game on your phone (iOS App Store and Google Play)!</p>
+      </div>
+    </div>
+    <div class="option-page" id="no-td-no-physics-no-hand-speed-no-trash">
+      <div class="game-result">
+        <div class="logo">
+          <a href="https://www.kongregate.com/games/doodadgames/bombardier" target="_blank">
+            <img src="img/bombardier.png" alt="Bombardier logo"/>
+          </a>
+        </div>
+        <p><a href="https://www.kongregate.com/games/doodadgames/bombardier" target="_blank">Bombardier</a></p>
+        <p>You can also play this game on your phone (iOS App Store and Google Play)!</p>
+      </div>
+    </div>
+  </body>
+</html>
