@@ -246,11 +246,15 @@ hr
   align-items: center;
   margin-block-start: 1em;
   margin-block-end: 2em;
+  margin-bottom: 3.5em;
 }
 
 .header-nav a
 {
   display: block;
+  margin: 0 auto;
+  /* The logo is heavier on the right so it needs to be pushed left to look balanced. */
+  padding-right: 0.2em;
 }
 
 .header-nav img
@@ -262,6 +266,9 @@ hr
 .header-nav .header-nav__main-logo
 {
   width: 10em;
+  margin: 0 auto;
+  /* The logo is heavier on the right so it needs to be pushed left to look balanced. */
+  padding-right: 0.2em;
 }
 
 .header-nav__social-links
@@ -280,6 +287,11 @@ hr
   max-width: initial;
 
   filter: invert();
+}
+
+footer
+{
+  margin-top: 4em;
 }
 
 @media (min-width: 40em)
